@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@theme {
+  --color-primary-50: #d9e0e9;
+  --color-primary-300: #8f99d6;
+  --color-primary-500: #8f6ad1;
+  --color-primary-700: #6465bb;
+  --color-primary-900: #2b388d;
+  --color-neutral-900: #0b0b0d;
+  
+  --font-family-heading: "Playfair Display", serif;
+  --font-family-body: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    font-family: Inter, system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-700 text-white px-6 py-3 rounded-xl font-medium shadow-md hover:shadow-lg hover:bg-primary-900 transform hover:-translate-y-0.5 transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-primary-500 text-primary-700 px-6 py-3 rounded-xl font-medium hover:bg-primary-50 transition-all duration-300;
+  }
+  
+  .chip {
+    @apply bg-primary-50 text-primary-700 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .gradient-brand {
+    @apply bg-primary-700;
+  }
+  
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-primary-50 p-6 hover:shadow-md transition-all duration-300;
+  }
+  
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-300 focus-visible:ring-offset-2;
+  }
+}

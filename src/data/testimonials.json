@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Sarah Wijaya",
+    "role": "Editor-in-Chief, Aurora Magazine",
+    "content": "Karya ilustrasi yang luar biasa! Setiap piece berhasil menangkap essence dari artikel dan memberikan dimensi emosional yang kuat. Engagement rate kami meningkat signifikan sejak bekerja sama.",
+    "avatar": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=200"
+  },
+  {
+    "id": 2,
+    "name": "Michael Chen",
+    "role": "Brand Director, Luna Cosmetics",
+    "content": "Proses kerja yang sangat profesional dan hasil yang melampaui ekspektasi. Visual identity yang diciptakan benar-benar mencerminkan nilai brand kami dan resonan dengan target audience.",
+    "avatar": "https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=200"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Rita Handayani",
+    "role": "Publishing Director, Bintang Kecil",
+    "content": "Atlas anak-anak ini menjadi salah satu proyek tersukses kami. Ilustrasi yang educational sekaligus fun, dengan attention to detail yang luar biasa. Highly recommended!",
+    "avatar": "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=200"
+  }
+]

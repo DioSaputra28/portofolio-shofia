@@ -1,0 +1,354 @@
+[
+  {
+    "id": "rappa-hsr",
+    "title": "Rappa (HSR)",
+    "category": "Fanart",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "",
+    "summary": "",
+    "thumbnail": "fanart/fanart-1.jpg",
+    "images": [
+      "fanart/fanart-1.jpg"
+    ],
+    "objective": "",
+    "process": "",
+    "results": "",
+    "impact": ""
+  },
+  {
+    "id": "anaxa-hsr",
+    "title": "Anaxa (HSR)",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork untuk karakter Anaxa dari Honkai Star Rail.",
+    "summary": "Ilustrasi commission dengan detail tinggi untuk karakter game populer.",
+    "thumbnail": "comission/comission-1.jpg",
+    "images": [
+      "comission/comission-1.jpg"
+    ],
+    "objective": "Menciptakan artwork commission yang sesuai dengan keinginan klien.",
+    "process": "Konsultasi dengan klien untuk memahami vision, sketsa, dan finalisasi artwork.",
+    "results": "Klien sangat puas dengan hasil akhir artwork.",
+    "impact": "Kepuasan klien 100%"
+  },
+  {
+    "id": "hatsuna-justine",
+    "title": "Hatsuna Justine",
+    "category": "Original Character",
+    "year": "2024",
+    "client": "",
+    "role": "Character Designer",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Desain karakter original dengan konsep modern fantasy.",
+    "summary": "Original character design dengan detail costume dan personality yang unik.",
+    "thumbnail": "original-character/oc-1.jpg",
+    "images": [
+      "original-character/oc-1.jpg"
+    ],
+    "objective": "Menciptakan karakter original yang memorable dan distinctive.",
+    "process": "Concept development, sketching, dan finalisasi design karakter.",
+    "results": "Karakter mendapat respon positif dari komunitas art.",
+    "impact": "Engagement tinggi di media sosial"
+  },
+  {
+    "id": "ziri",
+    "title": "Ziri",
+    "category": "Original Character",
+    "year": "2024",
+    "client": "",
+    "role": "Character Designer",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Desain karakter original dengan tema cyberpunk.",
+    "summary": "Original character dengan aesthetic futuristik dan detail teknologi.",
+    "thumbnail": "original-character/oc-3.jpg",
+    "images": [
+      "original-character/oc-3.jpg"
+    ],
+    "objective": "Mengeksplorasi aesthetic cyberpunk dalam character design.",
+    "process": "Research cyberpunk aesthetic, sketching, dan digital painting.",
+    "results": "Karakter menjadi populer di komunitas cyberpunk art.",
+    "impact": "Featured di beberapa art gallery online"
+  },
+  {
+    "id": "biodata-hatsuna-justine",
+    "title": "Biodata Hatsuna Justine",
+    "category": "Original Character",
+    "year": "2024",
+    "client": "",
+    "role": "Character Designer",
+    "tools": [
+      "Adobe Illustrator",
+      "Photoshop"
+    ],
+    "description": "Character sheet dan biodata lengkap untuk karakter Hatsuna Justine.",
+    "summary": "Dokumentasi lengkap karakter termasuk personality, background, dan detail design.",
+    "thumbnail": "original-character/oc-2.jpg",
+    "images": [
+      "original-character/oc-2.jpg"
+    ],
+    "objective": "Membuat dokumentasi karakter yang komprehensif.",
+    "process": "Character development, layout design, dan infographic creation.",
+    "results": "Character sheet yang informatif dan visually appealing.",
+    "impact": "Membantu audience memahami karakter lebih dalam"
+  },
+  {
+    "id": "ruang-tamu-bilqis",
+    "title": "Ruang Tamu Bilqis",
+    "category": "Illustration",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Photoshop"
+    ],
+    "description": "Ilustrasi interior ruang tamu dengan nuansa hangat dan cozy.",
+    "summary": "Environmental illustration yang menggambarkan suasana rumah yang nyaman.",
+    "thumbnail": "ilustration/ilutration-1.jpg",
+    "images": [
+      "ilustration/ilutration-1.jpg"
+    ],
+    "objective": "Menciptakan ilustrasi interior yang warm dan inviting.",
+    "process": "Observasi ruang, sketching layout, dan digital painting dengan detail lighting.",
+    "results": "Ilustrasi yang berhasil menangkap suasana hangat ruang tamu.",
+    "impact": "Apresiasi tinggi untuk detail dan atmosphere"
+  },
+  {
+    "id": "commission-2",
+    "title": "Commission Artwork 2",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-2.jpg",
+    "images": [
+      "comission/comission-2.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "commission-3",
+    "title": "Commission Artwork 3",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-3.jpg",
+    "images": [
+      "comission/comission-3.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "commission-4",
+    "title": "Commission Artwork 4",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-4.jpg",
+    "images": [
+      "comission/comission-4.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "commission-5",
+    "title": "Commission Artwork 5",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-5.jpg",
+    "images": [
+      "comission/comission-5.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "commission-6",
+    "title": "Commission Artwork 6",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-6.jpg",
+    "images": [
+      "comission/comission-6.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "commission-7",
+    "title": "Commission Artwork 7",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-7.jpg",
+    "images": [
+      "comission/comission-7.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "commission-8",
+    "title": "Commission Artwork 8",
+    "category": "Commission",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Commission artwork dengan detail tinggi.",
+    "summary": "Ilustrasi commission profesional untuk klien.",
+    "thumbnail": "comission/comission-8.jpg",
+    "images": [
+      "comission/comission-8.jpg"
+    ],
+    "objective": "Menciptakan artwork sesuai brief klien.",
+    "process": "Konsultasi, sketsa, dan finalisasi.",
+    "results": "Hasil memuaskan klien.",
+    "impact": "Kepuasan klien tinggi"
+  },
+  {
+    "id": "illustration-2",
+    "title": "Illustration 2",
+    "category": "Illustration",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Photoshop"
+    ],
+    "description": "Ilustrasi dengan teknik digital painting.",
+    "summary": "Karya ilustrasi dengan detail dan komposisi yang menarik.",
+    "thumbnail": "ilustration/ilustration-2.jpg",
+    "images": [
+      "ilustration/ilustration-2.jpg"
+    ],
+    "objective": "Menciptakan ilustrasi yang ekspresif dan bermakna.",
+    "process": "Sketching, digital painting, dan color grading.",
+    "results": "Ilustrasi yang memukau secara visual.",
+    "impact": "Apresiasi positif dari komunitas seni"
+  },
+  {
+    "id": "illustration-3",
+    "title": "Illustration 3",
+    "category": "Illustration",
+    "year": "2024",
+    "client": "",
+    "role": "Illustrator",
+    "tools": [
+      "Procreate",
+      "Adobe Photoshop"
+    ],
+    "description": "Ilustrasi dengan gaya artistik yang unik.",
+    "summary": "Karya ilustrasi dengan pendekatan kreatif dan inovatif.",
+    "thumbnail": "ilustration/ilustration-3.jpg",
+    "images": [
+      "ilustration/ilustration-3.jpg"
+    ],
+    "objective": "Mengeksplorasi teknik ilustrasi baru.",
+    "process": "Eksperimen dengan berbagai teknik digital.",
+    "results": "Ilustrasi dengan karakter visual yang kuat.",
+    "impact": "Mendapat perhatian dari komunitas ilustrator"
+  },
+  {
+    "id": "tatsuha-justin",
+    "title": "Tatsuha Justin",
+    "category": "Original Character",
+    "year": "2024",
+    "client": "",
+    "role": "Character Designer",
+    "tools": [
+      "Procreate",
+      "Adobe Illustrator"
+    ],
+    "description": "Desain karakter original Tatsuha Justin dengan konsep modern.",
+    "summary": "Original character design dengan personality dan visual yang distinctive.",
+    "thumbnail": "original-character/oc-4.jpg",
+    "images": [
+      "original-character/oc-4.jpg"
+    ],
+    "objective": "Menciptakan karakter original yang memorable.",
+    "process": "Character concept development, sketching, dan finalisasi design.",
+    "results": "Karakter dengan design yang unik dan menarik.",
+    "impact": "Respon positif dari komunitas character design"
+  }
+]
