@@ -17,11 +17,17 @@ import { useHead } from '@vueuse/head'
 import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
 
+interface RouteMeta {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
 const route = useRoute()
 
 // Update meta tags based on route
 watch(route, (to) => {
-  const meta = to.meta
+  const meta = to.meta as RouteMeta
   
   useHead({
     title: meta.title || 'Portofolio Ilustrator - Ilustrasi Editorial & Brand yang Puitis',

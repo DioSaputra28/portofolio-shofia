@@ -88,19 +88,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
-const highContrastMode = ref(false)
-
-const toggleHighContrast = () => {
-  highContrastMode.value = !highContrastMode.value
-  
-  if (highContrastMode.value) {
-    document.documentElement.classList.add('high-contrast')
-  } else {
-    document.documentElement.classList.remove('high-contrast')
-  }
-}
+// Footer component - no reactive data needed
 </script>
 
 <style>

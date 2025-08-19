@@ -180,13 +180,24 @@
 import { ref, reactive, onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
 
-const form = reactive({
+interface FormData {
+  name: string
+  projectType: string
+  message: string
+}
+
+interface FormErrors {
+  name: string
+  message: string
+}
+
+const form = reactive<FormData>({
   name: '',
   projectType: '',
   message: ''
 })
 
-const errors = reactive({
+const errors = reactive<FormErrors>({
   name: '',
   message: ''
 })
@@ -197,8 +208,8 @@ const showSuccess = ref(false)
 
 const validateForm = () => {
   // Reset errors
-  Object.keys(errors).forEach(key => {
-    errors[key] = ''
+  Object.keys(errors).forEach((key) => {
+    errors[key as keyof FormErrors] = ''
   })
 
   let isValid = true
@@ -239,8 +250,8 @@ const submitForm = async () => {
     window.open(whatsappUrl, '_blank')
     
     // Reset form
-    Object.keys(form).forEach(key => {
-      form[key] = ''
+    Object.keys(form).forEach((key) => {
+      form[key as keyof FormData] = ''
     })
     
     showSuccess.value = true

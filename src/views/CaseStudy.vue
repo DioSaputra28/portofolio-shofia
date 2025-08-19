@@ -140,14 +140,32 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import projectsData from '../data/projects.json'
 import { useHead } from '@vueuse/head'
 import { useAssets } from '../composables/useAssets'
 
+interface Project {
+  id: string
+  title: string
+  category: string
+  year: string
+  client: string
+  role: string
+  tools: string[]
+  description: string
+  summary: string
+  thumbnail: string
+  images: string[]
+  objective: string
+  process: string
+  results: string
+  impact: string
+}
+
 const route = useRoute()
-const project = ref(null)
+const project = ref<Project | null>(null)
 const { getImageUrl } = useAssets()
 
 const findProject = () => {
