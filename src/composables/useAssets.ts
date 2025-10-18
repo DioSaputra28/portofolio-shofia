@@ -16,6 +16,7 @@ import illustration1 from '../assets/img/ilustration/ilutration-1.jpg'
 import illustration2 from '../assets/img/ilustration/ilustration-2.jpg'
 import illustration3 from '../assets/img/ilustration/ilustration-3.jpg'
 import aboutImg from '../assets/img/about/about.jpg'
+import aboutImg1 from '../assets/img/about/about1.jpg'
 
 const imageMap: Record<string, string> = {
   'fanart/fanart-1.jpg': fanart1,
@@ -35,6 +36,7 @@ const imageMap: Record<string, string> = {
   'ilustration/ilustration-2.jpg': illustration2,
   'ilustration/ilustration-3.jpg': illustration3,
   'about/about.jpg': aboutImg,
+  'about/about1.jpg': aboutImg1,
 }
 
 export function useAssets() {

@@ -17,8 +17,8 @@
         <div class="relative max-w-sm mx-auto lg:mx-0">
           <div class="aspect-square rounded-2xl overflow-hidden ring-1 ring-primary-50">
             <img 
-              :src="getImageUrl('about/about.jpg')" 
-              alt="Portrait ilustrator - foto profesional"
+              :src="getImageUrl('about/about1.jpg')" 
+              alt="Potret Shofia Jasmine Madina Aspara - ilustrator digital"
               class="w-full h-full object-cover"
             />
           </div>
@@ -113,9 +113,9 @@
           Saya selalu terbuka untuk proyek baru yang menantang dan meaningful. Mari diskusikan bagaimana kita bisa bekerja sama.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <router-link to="/contact" class="btn-primary">
+          <a href="https://www.instagram.com/shocomms" target="_blank" rel="noopener" class="btn-primary">
             Mulai Proyek
-          </router-link>
+          </a>
           <router-link to="/work" class="btn-secondary">
             Lihat Portfolio
           </router-link>
@@ -126,18 +126,22 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
 import { useAssets } from '../composables/useAssets'
 
 const { getImageUrl } = useAssets()
 
-onMounted(() => {
-  useHead({
-    title: 'Tentang - Ilustrator Fresh Graduate',
-    meta: [
-      { name: 'description', content: 'Kenali lebih dalam tentang background, passion, dan journey kreatif sebagai ilustrator fresh graduate yang siap berkarya.' }
-    ]
-  })
+useHead({
+  title: 'Tentang Shofia Jasmine Madina Aspara | Ilustrator Digital',
+  meta: [
+    {
+      key: 'description',
+      name: 'description',
+      content:
+        'Kenali Shofia Jasmine Madina Aspara, ilustrator digital di balik akun Shocomms yang menciptakan character design, fan art, dan commission artwork dengan fokus pada storytelling visual.'
+    },
+    { key: 'og:type', property: 'og:type', content: 'profile' }
+  ]
 })
 </script>
+

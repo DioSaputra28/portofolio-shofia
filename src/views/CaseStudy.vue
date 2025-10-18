@@ -140,11 +140,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import projectsData from '../data/projects.json'
 import { useHead } from '@vueuse/head'
 import { useAssets } from '../composables/useAssets'
+import { siteMeta } from '../config/siteMeta'
 
 interface Project {
   id: string
@@ -168,30 +169,54 @@ const route = useRoute()
 const project = ref<Project | null>(null)
 const { getImageUrl } = useAssets()
 
-const findProject = () => {
-  const slug = route.params.slug as string
-  project.value = projectsData.find(p => p.id === slug) || null
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
 }
 
-onMounted(() => {
-  findProject()
-  
-  // Update meta tags if project found
-  if (project.value) {
-    useHead({
-      title: `${project.value.title} - Case Study`,
-      meta: [
-        { name: 'description', content: project.value.description },
-        { property: 'og:title', content: `${project.value.title} - Case Study` },
-        { property: 'og:description', content: project.value.description },
-        { property: 'og:image', content: project.value.images[0] },
-        { property: 'og:type', content: 'article' }
-      ]
-    })
-  }
-})
+const toAbsoluteUrl = (origin: string, assetPath: string | undefined) => {
+  if (!assetPath) return siteMeta.defaultOgImage
+  if (/^https?:\/\//i.test(assetPath)) return assetPath
+  const normalizedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const sanitizedPath = assetPath.startsWith('/') ? assetPath : `/${assetPath}`
+  return `${normalizedOrigin}${sanitizedPath}`
+}
 
-watch(() => route.params.slug, () => {
-  findProject()
-})
+const findProject = () => {
+  const slug = route.params.slug as string
+  project.value = projectsData.find((p) => p.id === slug) || null
+}
+
+const updatePageHead = () => {
+  if (!project.value) return
+
+  const origin = resolveOrigin()
+  const primaryImage = project.value.images?.[0] || project.value.thumbnail
+  const resolvedImage = primaryImage ? getImageUrl(primaryImage) : undefined
+  const ogImage = toAbsoluteUrl(origin, resolvedImage)
+  const title = `${project.value.title} | Case Study Shofia Jasmine`
+  const summary = project.value.summary || project.value.description || siteMeta.defaultDescription
+
+  useHead({
+    title,
+    meta: [
+      { key: 'description', name: 'description', content: summary },
+      { key: 'og:title', property: 'og:title', content: title },
+      { key: 'og:description', property: 'og:description', content: summary },
+      { key: 'og:image', property: 'og:image', content: ogImage },
+      { key: 'og:type', property: 'og:type', content: 'article' }
+    ]
+  })
+}
+
+watch(
+  () => route.params.slug,
+  () => {
+    findProject()
+    updatePageHead()
+  },
+  { immediate: true }
+)
 </script>

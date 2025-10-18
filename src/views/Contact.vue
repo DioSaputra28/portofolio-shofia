@@ -134,7 +134,7 @@
             <h3 class="font-semibold text-neutral-900 mb-4">Media Sosial</h3>
             <div class="space-y-3">
               <a
-                href="https://www.instagram.com/shofia_shoo?igsh=Mm15d3hyYXUyODA2"
+                href="https://www.instagram.com/shocomms"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="flex items-center text-neutral-900 hover:text-primary-700 transition-colors focus-ring rounded"
@@ -177,7 +177,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive } from 'vue'
 import { useHead } from '@vueuse/head'
 
 interface FormData {
@@ -204,7 +204,6 @@ const errors = reactive<FormErrors>({
 
 const isSubmitting = ref(false)
 const showSuccess = ref(false)
-// Remove emailCopied ref as it's no longer needed
 
 const validateForm = () => {
   // Reset errors
@@ -270,12 +269,15 @@ const submitForm = async () => {
 
 // Remove copyEmail function as it's no longer needed
 
-onMounted(() => {
-  useHead({
-    title: 'Kontak - Mari Berkolaborasi',
-    meta: [
-      { name: 'description', content: 'Hubungi untuk konsultasi proyek ilustrasi. Response dalam 1-2 hari kerja untuk semua inquiry. Tersedia untuk proyek editorial, branding, dan publishing.' }
-    ]
-  })
+useHead({
+  title: 'Kontak Shofia Jasmine Madina Aspara | Buka Komisi Ilustrasi Digital',
+  meta: [
+    {
+      key: 'description',
+      name: 'description',
+      content:
+        'Hubungi Shofia Jasmine Madina Aspara melalui WhatsApp atau media sosial untuk konsultasi komisi ilustrasi digital. Respon 1-2 hari dan siap kolaborasi project kreatif.'
+    }
+  ]
 })
 </script>

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Block build artifacts
+Disallow: /dist/
+
+Sitemap: https://shofiaa.my.id/sitemap.xml
+

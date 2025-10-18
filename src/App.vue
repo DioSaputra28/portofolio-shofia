@@ -16,6 +16,7 @@ import { useRoute } from 'vue-router'
 import { useHead } from '@vueuse/head'
 import AppNavbar from './components/AppNavbar.vue'
 import AppFooter from './components/AppFooter.vue'
+import { siteMeta } from './config/siteMeta'
 
 interface RouteMeta {
   title?: string
@@ -25,54 +26,83 @@ interface RouteMeta {
 
 const route = useRoute()
 
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
+}
+
+const normalizeUrl = (origin: string, path: string) => {
+  const trimmedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const finalPath = path.startsWith('/') ? path : `/${path}`
+  return `${trimmedOrigin}${finalPath}`
+}
+
 // Update meta tags based on route
-watch(route, (to) => {
-  const meta = to.meta as RouteMeta
-  
-  useHead({
-    title: meta.title || 'Portofolio Ilustrator - Ilustrasi Editorial & Brand yang Puitis',
-    meta: [
-      { name: 'description', content: meta.description || 'Ilustrator profesional yang mengkhususkan diri pada ilustrasi editorial, branding, dan buku anak dengan gaya visual yang puitis dan berkarakter.' },
-      { property: 'og:title', content: meta.title || 'Portofolio Ilustrator - Ilustrasi Editorial & Brand yang Puitis' },
-      { property: 'og:description', content: meta.description || 'Ilustrator profesional yang mengkhususkan diri pada ilustrasi editorial, branding, dan buku anak dengan gaya visual yang puitis dan berkarakter.' },
-      { property: 'og:image', content: meta.ogImage || 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200' },
-      { property: 'og:type', content: 'website' },
-      { property: 'og:site_name', content: 'Arya Ilustrasi' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: meta.title || 'Portofolio Ilustrator - Ilustrasi Editorial & Brand yang Puitis' },
-      { name: 'twitter:description', content: meta.description || 'Ilustrator profesional yang mengkhususkan diri pada ilustrasi editorial, branding, dan buku anak dengan gaya visual yang puitis dan berkarakter.' },
-      { name: 'twitter:image', content: meta.ogImage || 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200' }
-    ],
-    script: [
-      {
-        type: 'application/ld+json',
-        children: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Arya Ilustrasi",
-          "jobTitle": "Professional Illustrator",
-          "description": "Ilustrator profesional yang mengkhususkan diri pada ilustrasi editorial, branding, dan buku anak dengan gaya visual yang puitis dan berkarakter.",
-          "url": window.location.origin,
-          "image": "https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=800",
-          "sameAs": [
-            "https://instagram.com/aryailustrator",
-            "https://behance.net/aryailustrator", 
-            "https://dribbble.com/aryailustrator"
-          ],
-          "knowsAbout": ["Editorial Illustration", "Brand Design", "Children's Books", "Digital Art"],
-          "hasOccupation": {
-            "@type": "Occupation",
-            "name": "Illustrator",
-            "occupationLocation": {
-              "@type": "Country",
-              "name": "Indonesia"
+watch(
+  () => route.fullPath,
+  () => {
+    const meta = route.meta as RouteMeta
+    const title = meta.title || siteMeta.defaultTitle
+    const description = meta.description || siteMeta.defaultDescription
+    const ogImage = meta.ogImage || siteMeta.defaultOgImage
+    const origin = resolveOrigin()
+    const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
+    const socialLinks = Object.values(siteMeta.social).filter(Boolean)
+
+    useHead({
+      title,
+      meta: [
+        { key: 'description', name: 'description', content: description },
+        { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
+        { key: 'author', name: 'author', content: siteMeta.owner },
+        { key: 'og:title', property: 'og:title', content: title },
+        { key: 'og:description', property: 'og:description', content: description },
+        { key: 'og:image', property: 'og:image', content: ogImage },
+        { key: 'og:type', property: 'og:type', content: 'website' },
+        { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
+        { key: 'og:url', property: 'og:url', content: canonicalUrl },
+        { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { key: 'twitter:title', name: 'twitter:title', content: title },
+        { key: 'twitter:description', name: 'twitter:description', content: description },
+        { key: 'twitter:image', name: 'twitter:image', content: ogImage },
+        siteMeta.twitterHandle
+          ? { key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle }
+          : null,
+        { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
+      ].filter(Boolean),
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
             }
-          }
-        })
-      }
-    ]
-  })
-}, { immediate: true })
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
 </script>
 
 <style>

@@ -5,6 +5,7 @@ import CaseStudy from '../views/CaseStudy.vue'
 import About from '../views/About.vue'
 import Services from '../views/Services.vue'
 import Contact from '../views/Contact.vue'
+import { siteMeta } from '../config/siteMeta'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -14,9 +15,10 @@ const router = createRouter({
       name: 'Home',
       component: Home,
       meta: {
-        title: 'Portofolio Ilustrator - Ilustrasi Editorial & Brand yang Puitis',
-        description: 'Ilustrator profesional yang mengkhususkan diri pada ilustrasi editorial, branding, dan buku anak dengan gaya visual yang puitis dan berkarakter.',
-        ogImage: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200'
+        title: siteMeta.defaultTitle,
+        description:
+          'Portofolio ilustrasi digital Shofia Jasmine Madina Aspara yang menampilkan character design, fan art, dan commission artwork dengan gaya ekspresif.',
+        ogImage: siteMeta.defaultOgImage
       }
     },
     {
@@ -24,9 +26,10 @@ const router = createRouter({
       name: 'Work',
       component: Work,
       meta: {
-        title: 'Karya - Portofolio Ilustrasi',
-        description: 'Koleksi karya ilustrasi editorial, branding, packaging, dan environmental art dengan berbagai klien terpercaya.',
-        ogImage: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200'
+        title: 'Karya Shofia Jasmine - Koleksi Ilustrasi Digital',
+        description:
+          'Lihat kumpulan karya ilustrasi digital Shofia Jasmine Madina Aspara, termasuk character sheet, fan art, dan commission project untuk brand maupun personal.',
+        ogImage: siteMeta.defaultOgImage
       }
     },
     {
@@ -34,8 +37,10 @@ const router = createRouter({
       name: 'CaseStudy',
       component: CaseStudy,
       meta: {
-        title: 'Case Study - Detail Proyek',
-        description: 'Detail lengkap proses kreatif, tantangan, dan hasil dari proyek ilustrasi.',
+        title: 'Case Study Ilustrasi - Proses Kreatif Shofia Jasmine',
+        description:
+          'Pelajari proses kreatif dan solusi visual yang diterapkan Shofia Jasmine Madina Aspara pada setiap proyek ilustrasi digital.',
+        ogImage: siteMeta.defaultOgImage
       }
     },
     {
@@ -43,9 +48,10 @@ const router = createRouter({
       name: 'About',
       component: About,
       meta: {
-        title: 'Tentang - Ilustrator Profesional',
-        description: 'Kenali lebih dalam tentang background, pengalaman, dan philosophy dalam berkarya sebagai ilustrator profesional.',
-        ogImage: 'https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1200'
+        title: 'Tentang Shofia Jasmine Madina Aspara - Ilustrator Digital',
+        description:
+          'Kenali Shofia Jasmine Madina Aspara, ilustrator digital di balik akun Shocomms yang fokus pada character design, fan art, dan commission artwork dengan storytelling kuat.',
+        ogImage: siteMeta.defaultOgImage
       }
     },
     {
@@ -53,9 +59,10 @@ const router = createRouter({
       name: 'Services',
       component: Services,
       meta: {
-        title: 'Layanan - Paket Ilustrasi Profesional',
-        description: 'Pilihan paket layanan ilustrasi untuk editorial, branding, dan publishing dengan timeline dan deliverables yang jelas.',
-        ogImage: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200'
+        title: 'Layanan Ilustrasi Shofia Jasmine',
+        description:
+          'Pilih layanan ilustrasi digital Shofia Jasmine Madina Aspara untuk kebutuhan character design, fan art spesial, hingga commission artwork profesional.',
+        ogImage: siteMeta.defaultOgImage
       }
     },
     {
@@ -63,9 +70,10 @@ const router = createRouter({
       name: 'Contact',
       component: Contact,
       meta: {
-        title: 'Kontak - Mari Berkolaborasi',
-        description: 'Hubungi untuk konsultasi proyek ilustrasi. Response dalam 1-2 hari kerja untuk semua inquiry.',
-        ogImage: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=1200'
+        title: 'Kontak Shofia Jasmine - Buka Komisi Ilustrasi',
+        description:
+          'Hubungi Shofia Jasmine Madina Aspara untuk diskusi project ilustrasi digital. Komisi dibuka dan respon dalam 1-2 hari melalui WhatsApp atau media sosial.',
+        ogImage: siteMeta.defaultOgImage
       }
     }
   ],

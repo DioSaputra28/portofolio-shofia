@@ -253,15 +253,17 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
 import { useHead } from '@vueuse/head'
 
-onMounted(() => {
-  useHead({
-    title: 'Layanan - Paket Ilustrasi Profesional',
-    meta: [
-      { name: 'description', content: 'Pilihan paket layanan ilustrasi untuk editorial, branding, dan publishing dengan timeline dan deliverables yang jelas. Konsultasi gratis tersedia.' }
-    ]
-  })
+useHead({
+  title: 'Layanan Ilustrasi Shofia Jasmine Madina Aspara',
+  meta: [
+    {
+      key: 'description',
+      name: 'description',
+      content:
+        'Temukan paket layanan ilustrasi digital Shofia Jasmine Madina Aspara untuk character design, fan art spesial, dan commission artwork profesional lengkap dengan deliverables yang jelas.'
+    }
+  ]
 })
 </script>
