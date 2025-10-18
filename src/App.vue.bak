@@ -1,0 +1,900 @@
+<template>
+  <div id="app">
+    <AppNavbar />
+    
+    <main>
+      <router-view />
+    </main>
+    
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
+import AppNavbar from './components/AppNavbar.vue'
+import AppFooter from './components/AppFooter.vue'
+import { siteMeta } from './config/siteMeta'
+
+interface RouteMeta {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
+const route = useRoute()
+
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
+}
+
+const normalizeUrl = (origin: string, path: string) => {
+  const trimmedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const finalPath = path.startsWith('/') ? path : `/${path}`
+  return `${trimmedOrigin}${finalPath}`
+}
+
+// Update meta tags based on route
+watch(
+  () => route.fullPath,
+  () => {
+    const meta = route.meta as RouteMeta
+    const title = meta.title || siteMeta.defaultTitle
+    const description = meta.description || siteMeta.defaultDescription
+    const ogImage = meta.ogImage || siteMeta.defaultOgImage
+    const origin = resolveOrigin()
+    const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
+    const socialLinks = Object.values(siteMeta.social)
+
+    useHead({
+      title,
+      param($match) $metaBlock=$match.Groups[2].Value; $lines=$metaBlock -split "\r?\n"; $filteredLines=$lines | ForEach-Object { if(<template>
+  <div id="app">
+    <AppNavbar />
+    
+    <main>
+      <router-view />
+    </main>
+    
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
+import AppNavbar from './components/AppNavbar.vue'
+import AppFooter from './components/AppFooter.vue'
+import { siteMeta } from './config/siteMeta'
+
+interface RouteMeta {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
+const route = useRoute()
+
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
+}
+
+const normalizeUrl = (origin: string, path: string) => {
+  const trimmedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const finalPath = path.startsWith('/') ? path : `/${path}`
+  return `${trimmedOrigin}${finalPath}`
+}
+
+// Update meta tags based on route
+watch(
+  () => route.fullPath,
+  () => {
+    const meta = route.meta as RouteMeta
+    const title = meta.title || siteMeta.defaultTitle
+    const description = meta.description || siteMeta.defaultDescription
+    const ogImage = meta.ogImage || siteMeta.defaultOgImage
+    const origin = resolveOrigin()
+    const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
+    const socialLinks = Object.values(siteMeta.social)
+
+    useHead({
+      title,
+      meta: [
+        { key: 'description', name: 'description', content: description },
+        { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
+        { key: 'author', name: 'author', content: siteMeta.owner },
+        { key: 'og:title', property: 'og:title', content: title },
+        { key: 'og:description', property: 'og:description', content: description },
+        { key: 'og:image', property: 'og:image', content: ogImage },
+        { key: 'og:type', property: 'og:type', content: 'website' },
+        { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
+        { key: 'og:url', property: 'og:url', content: canonicalUrl },
+        { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { key: 'twitter:title', name: 'twitter:title', content: title },
+        { key: 'twitter:description', name: 'twitter:description', content: description },
+        { key: 'twitter:image', name: 'twitter:image', content: ogImage },
+        siteMeta.twitterHandle
+          ? { key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle }
+          : __NULL_PLACEHOLDER__,
+        { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
+      ],
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
+            }
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles */
+.focus-ring:focus-visible {
+  outline: 2px solid #8f99d6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f6ad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6465bb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+
+ -match '__NULL_PLACEHOLDER__'){ $commaPattern='^\s*,?\s*__NULL_PLACEHOLDER__\s*,?\s*,
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
+            }
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles */
+.focus-ring:focus-visible {
+  outline: 2px solid #8f99d6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f6ad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6465bb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+
+; if(<template>
+  <div id="app">
+    <AppNavbar />
+    
+    <main>
+      <router-view />
+    </main>
+    
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
+import AppNavbar from './components/AppNavbar.vue'
+import AppFooter from './components/AppFooter.vue'
+import { siteMeta } from './config/siteMeta'
+
+interface RouteMeta {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
+const route = useRoute()
+
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
+}
+
+const normalizeUrl = (origin: string, path: string) => {
+  const trimmedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const finalPath = path.startsWith('/') ? path : `/${path}`
+  return `${trimmedOrigin}${finalPath}`
+}
+
+// Update meta tags based on route
+watch(
+  () => route.fullPath,
+  () => {
+    const meta = route.meta as RouteMeta
+    const title = meta.title || siteMeta.defaultTitle
+    const description = meta.description || siteMeta.defaultDescription
+    const ogImage = meta.ogImage || siteMeta.defaultOgImage
+    const origin = resolveOrigin()
+    const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
+    const socialLinks = Object.values(siteMeta.social)
+
+    useHead({
+      title,
+      meta: [
+        { key: 'description', name: 'description', content: description },
+        { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
+        { key: 'author', name: 'author', content: siteMeta.owner },
+        { key: 'og:title', property: 'og:title', content: title },
+        { key: 'og:description', property: 'og:description', content: description },
+        { key: 'og:image', property: 'og:image', content: ogImage },
+        { key: 'og:type', property: 'og:type', content: 'website' },
+        { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
+        { key: 'og:url', property: 'og:url', content: canonicalUrl },
+        { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { key: 'twitter:title', name: 'twitter:title', content: title },
+        { key: 'twitter:description', name: 'twitter:description', content: description },
+        { key: 'twitter:image', name: 'twitter:image', content: ogImage },
+        siteMeta.twitterHandle
+          ? { key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle }
+          : __NULL_PLACEHOLDER__,
+        { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
+      ],
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
+            }
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles */
+.focus-ring:focus-visible {
+  outline: 2px solid #8f99d6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f6ad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6465bb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+
+ -match $commaPattern){ $null } else { $null } } else { <template>
+  <div id="app">
+    <AppNavbar />
+    
+    <main>
+      <router-view />
+    </main>
+    
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
+import AppNavbar from './components/AppNavbar.vue'
+import AppFooter from './components/AppFooter.vue'
+import { siteMeta } from './config/siteMeta'
+
+interface RouteMeta {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
+const route = useRoute()
+
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
+}
+
+const normalizeUrl = (origin: string, path: string) => {
+  const trimmedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const finalPath = path.startsWith('/') ? path : `/${path}`
+  return `${trimmedOrigin}${finalPath}`
+}
+
+// Update meta tags based on route
+watch(
+  () => route.fullPath,
+  () => {
+    const meta = route.meta as RouteMeta
+    const title = meta.title || siteMeta.defaultTitle
+    const description = meta.description || siteMeta.defaultDescription
+    const ogImage = meta.ogImage || siteMeta.defaultOgImage
+    const origin = resolveOrigin()
+    const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
+    const socialLinks = Object.values(siteMeta.social)
+
+    useHead({
+      title,
+      meta: [
+        { key: 'description', name: 'description', content: description },
+        { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
+        { key: 'author', name: 'author', content: siteMeta.owner },
+        { key: 'og:title', property: 'og:title', content: title },
+        { key: 'og:description', property: 'og:description', content: description },
+        { key: 'og:image', property: 'og:image', content: ogImage },
+        { key: 'og:type', property: 'og:type', content: 'website' },
+        { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
+        { key: 'og:url', property: 'og:url', content: canonicalUrl },
+        { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { key: 'twitter:title', name: 'twitter:title', content: title },
+        { key: 'twitter:description', name: 'twitter:description', content: description },
+        { key: 'twitter:image', name: 'twitter:image', content: ogImage },
+        siteMeta.twitterHandle
+          ? { key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle }
+          : __NULL_PLACEHOLDER__,
+        { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
+      ],
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
+            }
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles */
+.focus-ring:focus-visible {
+  outline: 2px solid #8f99d6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f6ad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6465bb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+
+ } }; $joined=($filteredLines | Where-Object {<template>
+  <div id="app">
+    <AppNavbar />
+    
+    <main>
+      <router-view />
+    </main>
+    
+    <AppFooter />
+  </div>
+</template>
+
+<script setup lang="ts">
+import { watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useHead } from '@vueuse/head'
+import AppNavbar from './components/AppNavbar.vue'
+import AppFooter from './components/AppFooter.vue'
+import { siteMeta } from './config/siteMeta'
+
+interface RouteMeta {
+  title?: string
+  description?: string
+  ogImage?: string
+}
+
+const route = useRoute()
+
+const resolveOrigin = () => {
+  if (typeof window !== 'undefined' && window.location?.origin) {
+    return window.location.origin
+  }
+  return siteMeta.siteUrl
+}
+
+const normalizeUrl = (origin: string, path: string) => {
+  const trimmedOrigin = origin.endsWith('/') ? origin.slice(0, -1) : origin
+  const finalPath = path.startsWith('/') ? path : `/${path}`
+  return `${trimmedOrigin}${finalPath}`
+}
+
+// Update meta tags based on route
+watch(
+  () => route.fullPath,
+  () => {
+    const meta = route.meta as RouteMeta
+    const title = meta.title || siteMeta.defaultTitle
+    const description = meta.description || siteMeta.defaultDescription
+    const ogImage = meta.ogImage || siteMeta.defaultOgImage
+    const origin = resolveOrigin()
+    const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
+    const socialLinks = Object.values(siteMeta.social)
+
+    useHead({
+      title,
+      meta: [
+        { key: 'description', name: 'description', content: description },
+        { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
+        { key: 'author', name: 'author', content: siteMeta.owner },
+        { key: 'og:title', property: 'og:title', content: title },
+        { key: 'og:description', property: 'og:description', content: description },
+        { key: 'og:image', property: 'og:image', content: ogImage },
+        { key: 'og:type', property: 'og:type', content: 'website' },
+        { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
+        { key: 'og:url', property: 'og:url', content: canonicalUrl },
+        { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { key: 'twitter:title', name: 'twitter:title', content: title },
+        { key: 'twitter:description', name: 'twitter:description', content: description },
+        { key: 'twitter:image', name: 'twitter:image', content: ogImage },
+        siteMeta.twitterHandle
+          ? { key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle }
+          : __NULL_PLACEHOLDER__,
+        { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
+      ],
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
+            }
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles */
+.focus-ring:focus-visible {
+  outline: 2px solid #8f99d6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f6ad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6465bb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+
+ -ne ''}) -join "`n"; return $match.Groups[1].Value + "`n" + $joined + "`n" + $match.Groups[3].Value ,
+      link: [
+        { key: 'canonical', rel: 'canonical', href: canonicalUrl },
+        { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
+      ],
+      script: [
+        {
+          key: 'ld-person',
+          type: 'application/ld+json',
+          children: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: siteMeta.owner,
+            alternateName: siteMeta.siteName,
+            description,
+            url: canonicalUrl,
+            image: siteMeta.defaultOgImage,
+            sameAs: socialLinks,
+            jobTitle: 'Digital Illustrator',
+            brand: siteMeta.siteName,
+            knowsAbout: ['Digital Illustration', 'Character Design', 'Fan Art', 'Commission Artwork'],
+            address: {
+              '@type': 'PostalAddress',
+              addressCountry: 'ID'
+            }
+          })
+        }
+      ]
+    })
+  },
+  { immediate: true }
+)
+</script>
+
+<style>
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus visible styles */
+.focus-ring:focus-visible {
+  outline: 2px solid #8f99d6;
+  outline-offset: 2px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8f6ad1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6465bb;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+</style>
+
+
+

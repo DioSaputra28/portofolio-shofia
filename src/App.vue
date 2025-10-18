@@ -39,6 +39,31 @@ const normalizeUrl = (origin: string, path: string) => {
   return `${trimmedOrigin}${finalPath}`
 }
 
+const buildMetaTags = (title: string, description: string, ogImage: string, canonicalUrl: string) => {
+  const metaTags = [
+    { key: 'description', name: 'description', content: description },
+    { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
+    { key: 'author', name: 'author', content: siteMeta.owner },
+    { key: 'og:title', property: 'og:title', content: title },
+    { key: 'og:description', property: 'og:description', content: description },
+    { key: 'og:image', property: 'og:image', content: ogImage },
+    { key: 'og:type', property: 'og:type', content: 'website' },
+    { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
+    { key: 'og:url', property: 'og:url', content: canonicalUrl },
+    { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+    { key: 'twitter:title', name: 'twitter:title', content: title },
+    { key: 'twitter:description', name: 'twitter:description', content: description },
+    { key: 'twitter:image', name: 'twitter:image', content: ogImage },
+    { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
+  ]
+
+  if (siteMeta.twitterHandle) {
+    metaTags.push({ key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle })
+  }
+
+  return metaTags
+}
+
 // Update meta tags based on route
 watch(
   () => route.fullPath,
@@ -49,29 +74,11 @@ watch(
     const ogImage = meta.ogImage || siteMeta.defaultOgImage
     const origin = resolveOrigin()
     const canonicalUrl = normalizeUrl(origin, route.fullPath || '/')
-    const socialLinks = Object.values(siteMeta.social).filter(Boolean)
+    const socialLinks = Object.values(siteMeta.social)
 
     useHead({
       title,
-      meta: [
-        { key: 'description', name: 'description', content: description },
-        { key: 'keywords', name: 'keywords', content: siteMeta.keywords.join(', ') },
-        { key: 'author', name: 'author', content: siteMeta.owner },
-        { key: 'og:title', property: 'og:title', content: title },
-        { key: 'og:description', property: 'og:description', content: description },
-        { key: 'og:image', property: 'og:image', content: ogImage },
-        { key: 'og:type', property: 'og:type', content: 'website' },
-        { key: 'og:site_name', property: 'og:site_name', content: siteMeta.siteName },
-        { key: 'og:url', property: 'og:url', content: canonicalUrl },
-        { key: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-        { key: 'twitter:title', name: 'twitter:title', content: title },
-        { key: 'twitter:description', name: 'twitter:description', content: description },
-        { key: 'twitter:image', name: 'twitter:image', content: ogImage },
-        siteMeta.twitterHandle
-          ? { key: 'twitter:site', name: 'twitter:site', content: siteMeta.twitterHandle }
-          : null,
-        { key: 'theme-color', name: 'theme-color', content: '#2b388d' }
-      ].filter(Boolean),
+      meta: buildMetaTags(title, description, ogImage, canonicalUrl),
       link: [
         { key: 'canonical', rel: 'canonical', href: canonicalUrl },
         { key: 'favicon', rel: 'icon', type: 'image/jpeg', href: '/logo.jpg' }
